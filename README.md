@@ -1,4 +1,4 @@
-# NodeJS Task
+# NodeJS Assignment
 ## 1. `Create API to initialize the database`
 ### Fetch the JSON from the third party API and initialize the database with seed data. You are free to define your own efficient table / collection structure.
 
