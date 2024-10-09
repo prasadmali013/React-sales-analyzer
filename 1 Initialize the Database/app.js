@@ -1,4 +1,3 @@
-// Import necessary packages
 const express = require('express');
 const axios = require('axios');
 const mongoose = require('mongoose');
@@ -46,7 +45,6 @@ const app = express();
 // Define an endpoint to fetch data from the database
 app.get('/products', async (req, res) => {
     try {
-        // Fetch data from the database
         const products = await Product.find();
 
         res.send(products);
