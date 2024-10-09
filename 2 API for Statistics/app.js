@@ -1,4 +1,3 @@
-// Import necessary packages
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -13,7 +12,6 @@ app.get('statistics/:month', async (req, res) => {
         const month = req.params.month.toLowerCase();
         const products = response.data;
 
-        // Filter products based on selected month
         const filteredProducts = products.filter(product => {
             const date = new Date(product.dateOfSale);
             return date.toLocaleString('default', { month: 'long' }).toLowerCase() === month;
@@ -27,7 +25,6 @@ app.get('statistics/:month', async (req, res) => {
             return acc;
         }, 0);
 
-        // Calculate total number of sold items of selected month
         const totalSoldItems = filteredProducts.filter(product => product.sold).length;
 
         // Calculate total number of not sold items of selected month
@@ -44,7 +41,7 @@ app.get('statistics/:month', async (req, res) => {
     }
 });
 
-// Start the application
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
