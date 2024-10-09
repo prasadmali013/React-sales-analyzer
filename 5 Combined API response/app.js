@@ -3,7 +3,6 @@ const express = require('express');
 const axios = require('axios');
 const app = express();
 
-// API endpoints for statistics, bar chart, and pie chart
 const statisticsAPI = 'http://127.0.0.1:3000/statistics';
 const barChartAPI = 'http://127.0.0.1:3000/bar-chart';
 const pieChartAPI = 'http://127.0.0.1:3000/pie-chart';
@@ -14,7 +13,6 @@ app.get('/combined-data/:month', async (req, res) => {
     let combinedData = {};
 
     try {
-        // Fetch data from statistics API
         const statisticsResponse = await axios.get(`${statisticsAPI}/${month}`);
         combinedData.totalSaleAmount = statisticsResponse.data.totalSaleAmount;
         combinedData.totalSoldItems = statisticsResponse.data.totalSoldItems;
@@ -35,5 +33,4 @@ app.get('/combined-data/:month', async (req, res) => {
     }
 });
 
-// Start server
 app.listen(3000, () => console.log('Server running on port 3000'));
