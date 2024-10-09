@@ -1,4 +1,3 @@
-// Import required modules
 const express = require('express');
 const axios = require('axios');
 
@@ -10,7 +9,7 @@ app.use(express.json());
 
 const API_URL = 'https://s3.amazonaws.com/roxiler.com/product_transaction.json';
 
-// API endpoint for pie chart
+
 app.get('/pie-chart/:month', async (req, res) => {
     try {
         const { month } = req.params;
@@ -24,7 +23,6 @@ app.get('/pie-chart/:month', async (req, res) => {
             return saleMonth === parseInt(month);
         });
 
-        // Count products in each category
         const categories = {};
         products.forEach((product) => {
             const { category } = product;
